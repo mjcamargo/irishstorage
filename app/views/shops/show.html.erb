@@ -1,0 +1,99 @@
+<h3><span><%= notice %></h3><span>
+</br
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shops</title>
+
+</head>
+
+<body>
+  <h1><span>Store Details</span></h1>
+  <div class="container">
+
+  <div id="left-column">
+    <p class="profile-pic"><%=image_tag("shop.jpg")%> </p>
+    <h4 class="p-3 mb-2 bg-primary"><%= @shop.name %></h4>
+    <h4 class="p-3 mb-2 bg-success"><%= @shop.capacity%> places available</h4>
+    <p class="p-3 mb-2 bg-secondary"><%= @shop.address %></p>
+    <br/>
+    <div class="bottom_btn">
+        <%= link_to 'Book Now', new_reservation_path(:id => @shop.id), class:'btn btn-success' %>
+    </div>
+  </div> 
+ <div id="right-column">
+   <p class="maps-pic">
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@shop.address}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
+</p>
+ </div> 
+    <div id="footer">
+        <h1><span>Reviews</span></h1>
+        <% if placeId(@shop.name,@shop.address) != nil %>   
+            <div id="rating">
+                <h4 class="p-3 mb-2 bg-primary">
+                    <% if rating != nil%>
+                        <%i = rating.round%>
+                        <% for i in 1..i do %> 
+                            <%=image_tag("y_star.png")%> 
+                        <%end%>
+                        <% for i in 1..5-i do %> 
+                            <%=image_tag("w_star.png")%> 
+                        <%end%>
+                    <%end%>  - <%= rating %></h4>
+            </div>
+            <div id="oHours">
+                <h4 class="p-3 lg-2 bg-warning">Opening Hours</h4>
+            </div> 
+            <div id="tablehours">
+                <table class="table">
+                    <tbody>
+                        <% hours.each do |k,v| %>
+                            <tr>
+                                <th scope="row"><%= k %></th>
+                                <td><%= v %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <div id="rating">
+                <h4 class="p-3 lg-2 bg-warning"><%= ratingT %> Reviews</h4>
+            </div>  
+            <div id="tablereviews">
+            <% for i in 0..4 do %>
+                <table class="table">
+                    <thead>
+                        <tr class="bg-primary">
+                            <th>Author</th>
+                            <th>Rating</th>
+                            <th colspan="3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= reviews[i].values[0] %></td>
+                            <td><%= reviews[i].values[1] %></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="bg-primary">
+                            <th>Comments</th>
+                            <th colspan="12"></th>
+                        </tr>
+                    </thead>
+                    
+                    <thead>
+                          <tr>
+                            <th colspan="12"><%= reviews[i].values[2] %></tr>
+                    </thead>                    
+                </table>
+            <%end%>     
+        <% end %>
+    </div> 
+    
+</div>
+<% @end = Time.now %>
+</body>
+</html>
+

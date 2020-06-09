@@ -1,0 +1,55 @@
+<h3><span><%= notice %></h3><span>
+<br/>
+<h1><span>Reservation Details </span></h1>
+<div class="tables-center">
+    <table class="tables table-striped table-dark">
+      <thead>
+      <tr>
+        <th colspan="12">Reservation <%= @reservation.id %> </th>
+      </tr>
+    </thead>
+      <thead>
+        <tr class="bg-primary">
+          <th>Drop Off</th>
+          <th>Pick Up</th>
+          <th>Price</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= @reservation.dropoffdate %> - <%= @reservation.dropofftime.strftime("%I:%M%p")    %> </td>
+            <td><%= @reservation.pickupdate %> - <%= @reservation.pickuptime.strftime("%I:%M%p") %> </td>
+            <td>€ <%= "%.2f" % @reservation.total.truncate(2) %></td>
+          </tr>
+      </tbody>
+      <thead>
+        <tr class="bg-primary">
+          <th>Number of luggage</th>
+          <th>Status</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= @reservation.numluggage %></td>
+            <td><%= @reservation.status %></td>
+          </tr>
+      </tbody>
+      <thead>
+        <tr class="bg-primary">
+          <th>Location</th>
+          <th colspan="12"></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="link">
+            <td> <%= link_to @reservation.shop.address, shop_path(:id => @reservation.shop.id) %></td>
+          </tr>
+      </tbody>
+    </table>
+</div>    
+<div class="bottom_btn">
+  <%= link_to 'Edit', edit_reservation_path(@reservation), class: "btn btn-danger" %>
+  <%= link_to 'Back', :back, class:'btn btn-success' %>
+</div>

@@ -1,0 +1,47 @@
+<div class="center-box">
+  <div class="row-fluid">
+    <div class="span6 offset3">
+
+      <%= form_for([@profile, @reservation],  html: { autocomplete: "off" } ) do |form| %>
+        <% if reservation.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+              <ul>
+              <% reservation.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+        <% end %>
+          <%= form.text_field :dropoffdate,:id => "datepicker", placeholder: "When are you going to leave your bag?", class: "form-control" %> 
+          <%= form.time_select :dropofftime, start_hour: 9, end_hour: 18, minute_step: 30, class: 'form-control' %>
+          <%= form.text_field :pickupdate,:id => "datepickerP", placeholder: "When are you going to pick up your bag?", class: "form-control" %> 
+          <%= form.time_select :pickuptime, start_hour: 9, end_hour: 18, minute_step: 30, class: 'form-control'  %><br />
+          <%= form.label :numluggage, 'How many Luggages?', class: "label label-primary" %>
+          <%= form.number_field :numluggage, min:1, max:5  %>
+          <%= form.hidden_field :shop_id, :value => @shop.id %>   
+          <div class="actions">
+            <%= form.submit "Submit", class: "btn btn-success" %>
+            <%= link_to 'Back', :back, class:'btn btn-danger' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>  
+<script>
+var date = new Date();
+date.setDate(date.getDate());
+end = date+7;
+
+$('#datepicker').datepicker({
+  format: 'dd/mm/yyyy',
+  startDate: date,
+  todayHighlight: true
+});
+
+$('#datepickerP').datepicker({
+  format: 'dd/mm/yyyy',
+  startDate: date,
+  todayHighlight: true
+});
+</script>

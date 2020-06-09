@@ -1,0 +1,20 @@
+<h1><span>Forgot your password?</span></h1>
+<div class="center-box">
+  <div class="row-fluid">
+    <div class="span6 offset3">
+      
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+      
+         <%= f.email_field :email, placeholder: "What is your name?", class: "form-control" %>
+
+        <div class="actions">
+            <%= f.submit "Send me reset password instructions", class: "btn btn-success" %>
+            <%= link_to 'Back', :back, class:'btn btn-danger' %>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>  
+</div>
+

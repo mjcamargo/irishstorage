@@ -1,0 +1,29 @@
+<div class="center-box">
+  <div class="row-fluid">
+    <div class="span6 offset3">
+        <%= form_with(model: shop, local: true) do |form| %>
+          <% if shop.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+        
+              <ul>
+              <% shop.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+        
+          <%= form.text_field :name, placeholder: "What is shop name?", class: "form-control" %> 
+          <%= form.text_field :address, placeholder: "Full Address : 20-10 Dame St, Dublin, Ireland", class: "form-control" %>
+          <%= form.label :capacity, 'How many bags can the shop store?', class: "label label-primary" %>
+          <%= form.number_field :capacity, min:1, max:50  %>
+          <div class="actions">
+            <%= form.submit "Submit", class: "btn btn-success" %>
+            <%= link_to 'Back', :back, class:'btn btn-danger' %>
+          </div>
+        <% end %>
+    </div>
+  </div>  
+</div>

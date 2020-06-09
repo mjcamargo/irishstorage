@@ -1,0 +1,28 @@
+<div class="center-box">
+  <div class="row-fluid">
+    <div class="span6 offset3">
+        <%= form_with(model: profile, local: true) do |form| %>
+        <% if profile.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+        
+              <ul>
+              <% profile.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        
+          <%= form.text_field :name, placeholder: "What is your name?", class: "form-control" %> 
+          <%= form.text_field :telephone, placeholder: "What is your phone number?", class: "form-control" %>
+          <%= form.label :picture, 'Profile Picture', class: "label label-primary" %>
+          <%= form.file_field :picture, class: "form-control" %> 
+          <div class="actions">
+            <%= form.submit "Submit", class: "btn btn-success" %>
+            <%= link_to 'Back', :back, class:'btn btn-danger' %>
+          </div>
+        <% end %>
+    </div>
+  </div>  
+</div>

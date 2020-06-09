@@ -1,0 +1,31 @@
+<h3><span><%= notice %></h3><span>
+<br/>
+<h1><span>Find an Irish Storage Locker</span></h1>
+
+<table class="tables table-striped">
+  <thead>
+    <tr class="bg-primary">
+      <th style="width:15%">Name</th>
+      <th style="width:40%">Address</th>
+      <th style="width:5%">Capacity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shops.each do |shop| %>
+      <tr>
+        <td><%= shop.name %></td>
+        <td><%= shop.address %></td>
+        <td><%= shop.capacity %></td>
+        <td style="width:1%"><%= link_to 'More Details', shop_path(shop.id), :class => 'btn btn-success' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if current_user.admin? %>
+<div class="bottom_btn">
+    <%= link_to 'New Shop', new_shop_path, class: "btn btn-custom" %>
+</div> 
+<% end %>
+   

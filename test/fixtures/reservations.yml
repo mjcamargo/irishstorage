@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dropoffdate: MyString
+  dropofftime: MyString
+  pickupdate: MyString
+  pickuptime: MyString
+  numluggage: 1
+  total: 10.00
+  shop: one
+
+two:
+  dropoffdate: MyString
+  dropofftime: MyString
+  pickupdate: MyString
+  pickuptime: MyString
+  numluggage: 1
+  total: 5.00
+  shop: two

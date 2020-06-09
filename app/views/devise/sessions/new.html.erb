@@ -1,0 +1,28 @@
+<h1><span>Log in</span></h1>
+
+<div class="center-box">
+  <div class="row-fluid">
+    <div class="span6 offset3">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <%= f.email_field :email, placeholder: "What is your name?", class: "form-control" %> 
+        <%= f.password_field :password, placeholder: "What is your password?", class: "form-control" %> 
+      
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me, class: "form-control" %>
+            <%= f.label :remember_me, 'Remember Me', class: "label label-primary" %>
+          </div>
+        <% end %>
+      
+        <div class="actions">
+            <%= f.submit "Login", class: "btn btn-success" %>
+            <%= link_to 'Back', :back, class:'btn btn-danger' %>
+          </div>
+      <% end %>
+      
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>  
+</div>
+

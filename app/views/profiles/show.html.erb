@@ -1,0 +1,33 @@
+<h3><span><%= notice %></h3><span>
+</br>
+<h1><span>My Profile</span></h1>
+<div class="profile-box">
+  <div class="row-fluid">
+    <div class="span6 offset3">
+        <table class="table">
+          <thead>
+            <tr class="bg-primary" >
+              <% if @profile.picture.attached? ==false %>
+                  <th class="profile-pic"><%=image_tag("no_photo.png")%> </th>
+              <% else %>
+                   <th class="profile-pic"><%= image_tag(@profile.picture)%></th>
+              <% end %>       
+            </tr>
+          </thead>
+          <tbody>
+            <tr bgcolor="#f5f7fa">
+              <th><%= @profile.name %></th>
+            </tr>
+            <tr class="bg-primary">
+              <th> <%= @profile.telephone %></th>
+            </tr>
+          </tbody>
+        </table>
+				
+				<div class="bottom_btn">
+            <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-danger" %>
+            <%= link_to 'Back', :back, class:'btn btn-success' %>
+        </div>
+			</div>	
+		</div>		
+</div>

@@ -1,0 +1,294 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap-datepicker
+ */
+
+@import 'bootstrap';
+
+body {
+  background: url(luggage2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.tables {
+  color: #292828;
+  font-weight: bold;
+  margin: 20px auto;
+  background: rgba(255,255,255, 0.7);
+  width: 60%;
+}
+
+h1 {
+  text-align: center; 
+}
+
+h1 span { 
+  background-color: rgba(0, 0, 0, 0.4);
+  color:white;
+  border-radius: 5px;
+}
+
+h3 span { 
+  background-color: rgba(0, 0, 0, 0.6);
+  float:left;
+  color:#04bd48;
+  border-color:#018c1f;
+}
+/* Login box */
+.login-box{
+  height:auto; 
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.logo-login{
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+  position: relative;
+  top: -10px;
+  left: calc(50% - 50px);
+}
+
+h2{
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
+}
+.login-box p{
+  margin: 0;
+  font-weight: bold;
+}
+.login-box input{
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.login-box input[type="text"], input[type="password"]
+{
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  outline: none;
+  height: auto;
+  color: #fff;
+  font-size: 20px;
+}
+
+.left-side {
+  float: left;
+  width: 40%;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 7em 0 0 5em;
+}
+
+.left-side h1{
+  color: white;
+}
+
+.left-side .small{
+  color: white;
+  margin-top: -1em;
+  font-size: 1.2em;
+}
+
+
+.login-box {
+  float: right;
+  width: 35%;
+  margin: 5em 5em 0 0;
+}
+.footer {
+  clear: both;
+  margin-bottom: 0;
+}
+
+
+a:visited {
+  color: inherit;
+}
+
+.container-fluid{
+  background: rgba(0, 0, 0, 0.6);
+  width: 70%;
+}
+
+.menu2{
+  font-size: 1.0em;
+  color: #FFFFFF;
+  margin-top:.5em;
+}
+
+.navbar-inverse {
+  background-color:#000000;
+}  
+
+.center-box {
+  color: #292828;
+  font-weight: bold;
+  margin: 20px auto;
+  background: rgba(0, 0, 0, 0.6);
+  width: 40%;
+  padding: 10px 10px 10px 10px;
+}
+
+.bottom_btn{
+  text-align: center; 
+}
+
+.btn-custom {
+    color: #f6f5fa !important;;
+    background-color: #091bde;
+}
+
+.btn.btn-custom:hover, .btn.btn-custom:focus {
+    color: #f6f5fa;
+    background-color: #091bde;
+}
+
+.tables-center {
+  font-weight: bold;
+  margin: 20px auto;
+  width: 50%;
+}
+
+.btn.btn-success:hover, .btn.btn-success:focus{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+a:visited {
+    color: #fff;
+}
+
+.tables th{
+   text-align: center; 
+}
+
+.link a:link {
+  text-decoration: underline;
+}
+
+.link a:visited {
+  color:#3b5ef7;
+}
+
+.link a:hover {
+  background:none;
+  text-decoration: underline;
+}
+
+.profile-pic{
+  text-align: center;
+}
+
+.profile-pic img{ 
+  border-radius: 70%;
+  width: 80%;
+  max-height: 15em;
+  padding: 5px 5px 5px 5px;
+}
+
+.profile-box {
+  color: #292828;
+  margin: 20px auto;
+  background: rgba(0, 0, 0, 0.6);
+  width: 20%;
+  padding: 10px 10px 10px 10px;
+}
+
+#left-column {
+    width:20%;
+    float:left;
+    margin-left: 20%;
+    height:300px;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+#right-column {
+    width:35%;
+    height:300px;
+    float:left;
+    background: rgba(0, 0, 0, 0.6);
+}
+#footer {
+    clear: both;
+    width:55%;
+    height:auto;
+    margin-left: 20.0%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.bg-primary{
+  background: rgba(0, 132, 245, 0.6);
+}
+
+.bg-success{
+  background: rgba(0, 33, 245, 0.4);
+  color:white;
+}
+
+.bg-secondary{
+  background: rgba(1, 138, 138, 0.6);
+  color:white;
+}
+
+.maps-pic img{
+   width:100%;
+   border-radius: 10%;
+}
+
+.label {
+  font-size: 95%
+}
+
+#tablereviews td, #tablereviews th{
+    font-size: 1em;
+    color:white;
+}
+
+#tablehours td, #tablehours th{
+  font-size: 1.2em;
+  color:white;
+}
+
+#tablehours table{
+  width:65%;
+  margin-left:20%;
+}
+
+#oHours h4{
+  background: rgba(140, 21, 3, 0.6);
+  color:white;
+  font-size: 2em;
+  padding-left:20%;
+} 
+
+#rating h4{
+  background: rgba(3, 140, 24, 0.6);
+  color:white;
+  font-size: 2em;
+  text-align:center;
+} 
+
+#rating img{
+  width:7%;
+  padding-bottom:1%;
+}

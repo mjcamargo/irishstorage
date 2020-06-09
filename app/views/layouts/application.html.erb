@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Irish Storage</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Irish Storage</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li class="active"><a href="/shops">Find a Storage</a></li>
+      <li class="active"><a href="/reservations">My Reservations</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+     <% if user_signed_in? %>
+        <div class="menu2">Signed in as... <%= current_user.email %>
+            (<%= link_to 'Sign out', destroy_user_session_path,:method => :delete%>)
+    </div>
+    <% else %>
+        <%= link_to 'Register', new_user_registration_path, :class => "btn btn-success" %> 
+        <%= link_to 'Sign in', new_user_session_path, :class => "btn btn-primary" %>
+    <% end %>
+    </ul>
+  </div>
+</nav>
+  
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
+
+
+
+
